@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoneyVault - Encrypt File</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+        .main-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .page-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            background: #6c757d;
+            border: none;
+            padding: 12px 20px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            color: white;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .form-check-label {
+            color: #495057;
+            font-size: 0.95rem;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .button-group .btn-primary {
+            flex: 1 1 100%;
+        }
+        .button-group .btn-secondary {
+            flex: 1 1 calc(50% - 5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-card">
+            <h2 class="page-title">
+                <i class="bi bi-shield-lock-fill"></i> HoneyVault – Upload & Encrypt File
+            </h2>
+
+            <form action="/encrypt_file" method="POST" enctype="multipart/form-data">
+
+                <!-- File Upload -->
+                <div class="mb-4">
+                    <label class="form-label">
+                        <i class="bi bi-file-earmark-arrow-up"></i> Select File
+                    </label>
+                    <input type="file" name="file" class="form-control" required>
+                </div>
+
+                <!-- Time Lock -->
+                <div class="mb-4">
+                    <label class="form-label">
+                        <i class="bi bi-clock-history"></i> Time Lock (optional)
+                    </label>
+                    <input type="datetime-local" name="time_lock" class="form-control">
+                    <div class="form-text">
+                        If set, file can only be decrypted after this time.
+                    </div>
+                </div>
+
+                <!-- Server Upload Checkbox -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" name="upload_server" id="upload_server">
+                    <label class="form-check-label" for="upload_server">
+                        <i class="bi bi-cloud-upload"></i> Upload encrypted file to server storage (server_files/)
+                    </label>
+                </div>
+
+                <!-- Keys Upload Checkbox -->
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" name="upload_keys" id="upload_keys">
+                    <label class="form-check-label" for="upload_keys">
+                        <i class="bi bi-key"></i> Upload key shares to server storage (server_keys/)
+                    </label>
+                </div>
+
+                <!-- Info Box -->
+                <div class="info-box">
+                    <strong><i class="bi bi-info-circle"></i> Security Tips:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li>Store keys in separate locations for maximum security</li>
+                        <li>Only check server upload if you need backup/sharing</li>
+                        <li>Time-lock prevents decryption before specified time</li>
+                    </ul>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-group mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-lock-fill"></i> Encrypt File
+                    </button>
+                    <a href="/decrypt_page" class="btn btn-secondary">
+                        <i class="bi bi-unlock-fill"></i> Decrypt
+                    </a>
+                    <a href="/dashboard" class="btn btn-secondary">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
