@@ -76,7 +76,7 @@ HoneyVault/
 
 1. Run the Flask server:
    
- By ------> python run.py
+    By ------> python run.py
 
 
 3. Open in your browser:
