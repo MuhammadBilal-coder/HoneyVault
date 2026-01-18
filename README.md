@@ -43,27 +43,28 @@ It integrates **AES-256 encryption**, **key splitting**, **honey (decoy) files**
 
 ## 📂 Project Structure
 
-HoneyVault/
-├── app/
-│   ├── main.py
-│   └── templates/
-│       ├── dashboard.html
-│       ├── upload.html
-│       ├── encrypt_result.html
-│       └── decrypt.html
-│
-├── core/
-│   ├── aes_encrypt.py
-│   ├── aes_decrypt.py
-│   ├── split_key.py
-│   ├── combine_key.py
-│   ├── timelock.py
-│   ├── honey_files.py
-│   └── db_functions.py
-│
-├── uploads/
-├── run.py
-└── requirements.txt
+    HoneyVault/
+    ├── app/
+    │   ├── main.py
+    │   └── templates/
+    │       ├── dashboard.html
+    │       ├── upload.html
+    │       ├── encrypt_result.html
+    │       └── decrypt.html
+    │
+    ├── core/
+    │   ├── aes_encrypt.py
+    │   ├── aes_decrypt.py
+    │   ├── split_key.py
+    │   ├── combine_key.py
+    │   ├── timelock.py
+    │   ├── honey_files.py
+    │   └── db_functions.py
+    │
+    ├── uploads/
+    ├── run.py
+    └── requirements.txt
+
 
 ---
 
